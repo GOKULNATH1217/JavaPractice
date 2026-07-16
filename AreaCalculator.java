@@ -32,7 +32,7 @@ class Square{
     {
         this.length=length;
     }
-    void disgplay()
+    void display()
     {
         int area=(int)(Math.pow(length, 2));
         System.out.println("AREA of SQUARE : "+area);
