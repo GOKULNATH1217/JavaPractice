@@ -20,7 +20,8 @@ class BankAccount {
     }
     void fetchBalance()
     {
-        System.out.println(this.balance);
+        System.out.println("YOUR ACCOUNT NAME : " + Name );
+        System.out.println("BALANCE = "+ this.balance);
     }
     void addBalance(int amount)
     {
