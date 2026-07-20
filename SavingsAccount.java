@@ -65,7 +65,8 @@ public class SavingsAccount {
             System.out.println("Press 1 to Credit");
             System.out.println("Press 2 to Debit");
             System.out.println("Press 3 to check your Balance");
-            System.out.println("Press 4 to exit");
+            System.out.println("Press 4 to view Interest");
+            System.out.println("Press 5 to exit");
             input=sc.nextInt();
             if(input==1)
             {
@@ -86,9 +87,17 @@ public class SavingsAccount {
             }
             else if(input==4)
             {
-                System.out.println("Exited , Thank you");
+                System.out.println("ENTER THE NUMBER OF YEARS : ");
+                int year=sc.nextInt();
+                System.out.println("ENTER THE PERCENTAGE : ");
+                int percentage=sc.nextInt();
+                System.out.println(b1.Interest(percentage,year));
             }
-        }while(input>0 && input<4);
+            else if(input==5)
+            {
+                System.out.println("EXITED , THANK YOU..!!");
+            }
+        }while(input>0 && input<5);
         
     }
 }
