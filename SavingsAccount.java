@@ -38,6 +38,19 @@ class CurrentAccount extends BankAccount{
     {
         super(AccountName, AccountNumber);
     }
+    private int overdraftamount=10000;
+    void debitOverDraft(int amount)
+    {
+        if(amount<=Balance+overdraftamount)
+        {
+            Balance = Balance-amount;
+        }
+    }
+    void overdraftDispaly()
+    {
+        System.out.println("YOUR BALANCE WITH OVERDRAFT AMOUNT : "+ (Balance+overdraftamount));
+    }
+
 }
 class SavingsAccount1 extends BankAccount
 {
@@ -62,11 +75,12 @@ public class SavingsAccount {
         CurrentAccount c1 = new CurrentAccount(name, id);
         int input;
         do{
-            System.out.println("Press 1 to Credit");
-            System.out.println("Press 2 to Debit");
-            System.out.println("Press 3 to check your Balance");
-            System.out.println("Press 4 to view Interest");
-            System.out.println("Press 5 to exit");
+            System.out.println("Press 1 to Credit from Saving Account");
+            System.out.println("Press 2 to credit from Current Account");
+            System.out.println("Press 3 to Debit");
+            System.out.println("Press 4 to check your Balance");
+            System.out.println("Press 5 to view Interest");
+            System.out.println("Press 6 to exit");
             input=sc.nextInt();
             if(input==1)
             {
@@ -76,16 +90,22 @@ public class SavingsAccount {
             }
             else if(input==2)
             {
+                System.out.println("Enter the amount : ");
+                int amount=sc.nextInt();
+                c1.debitOverDraft(amount);
+            }
+            else if(input==3)
+            {
                 System.out.println("Enter your amount : ");
                 int amount=sc.nextInt();
                 b1.debit(amount);
             }
-            else if(input==3)
+            else if(input==4)
             {
                 System.out.println("Your Balance is : ");
                 b1.display();;
             }
-            else if(input==4)
+            else if(input==5)
             {
                 System.out.println("ENTER THE NUMBER OF YEARS : ");
                 int year=sc.nextInt();
@@ -93,11 +113,11 @@ public class SavingsAccount {
                 int percentage=sc.nextInt();
                 System.out.println(b1.Interest(percentage,year));
             }
-            else if(input==5)
+            else if(input==6)
             {
                 System.out.println("EXITED , THANK YOU..!!");
             }
-        }while(input>0 && input<5);
+        }while(input>0 && input<6);
         
     }
 }
