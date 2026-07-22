@@ -41,6 +41,7 @@ class Manager extends Details{
     }
     void display()
     {
+        super.display();
         System.out.println("Bonus : " + bonus);
         System.out.println("Total Salary : "+totalSalary);
     }
@@ -52,7 +53,7 @@ class Developer extends Details
     {
         super(name,id,salary,dept);
     }
-    void programmingLanguage(String lang)
+    void setprogrammingLanguage(String lang)
     {
         programmingLanguage=lang;
     }
@@ -62,6 +63,7 @@ class Developer extends Details
     }
     void display()
     {
+        super.display();
         System.out.println("Programming Language : "+programmingLanguage);
     }
 }
@@ -69,10 +71,15 @@ public class Employee{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Manager m1 = new Manager("Goku",123,20000,"HR");
-        m1.setBonus(2000);
         Developer d1 = new Developer("GOKUL", 12340, 15000, "IT");
-        d1.programmingLanguage("JAVA");
+        m1.setBonus(1000);
+        d1.setprogrammingLanguage("JAVA");
+        System.out.println("MANAGER DETAILS");
         m1.display();
+        System.out.println();
+        System.out.println("DEVELOPER DETAILS");
         d1.display();
+
+        
     }
 }
